@@ -76,10 +76,11 @@ int main() {
         arr[i] = rand() % 100 + 1; 
     }
 
-    printf("The array is: ");
+    printf("array: ");
     for (i = 0; i < n; i++) {
         printf("%d ", arr[i]);
     }
+    printf("\n");
     start=clock();
       int t=hasDuplicates(arr, n);
     end= clock();
@@ -89,7 +90,7 @@ int main() {
         printf("YES\n");
     }
     else {
-        printf("NO\n");
+        printf("NO duplicates\n");
     }
 
     return 0;
