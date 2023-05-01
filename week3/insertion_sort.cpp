@@ -30,8 +30,9 @@ int main(){
     cout<<"enter n:";
     cin>>n;
     int arr[n];
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
+    printf("Random array elements: ");
+    for (int i = 0; i < n; i++) {
+        arr[i] = rand() % 100;
     }
     printarray(arr,n);
     insertionSort(arr,n);
