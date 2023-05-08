@@ -55,7 +55,7 @@ int main() {
     int k;
     printf("Enter k: ");
     k=(int)rand()%100;
-        double total_time = 0.0;
+        double total_time =0.0;
         clock_t start_time = clock();
         int kthSmallest = quickselect(arr, 0, n - 1, k);
         clock_t end_time = clock();
