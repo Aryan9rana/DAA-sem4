@@ -44,12 +44,12 @@ int main() {
     selection_sort(arr, n);
     clock_t end = clock();
  ts  = (double)(end - start)/CLOCKS_PER_SEC;
- printf("time = %f sec\n",ts*1000);
 
     printf("Sorted array: ");
     for (i = 0; i < n; i++) {
         printf("%d ", arr[i]);
     }
+ printf("time = %f sec\n",ts*1000);
     printf("\ncomparisons: %d\n", comparisons);
     printf("swaps: %d\n", swaps);
     return 0;
