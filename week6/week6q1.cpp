@@ -1,29 +1,29 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 void dfs(int node, vector<int>adjL[],int visited[],vector<int>&ans){
     visited[node]=1;
     ans.push_back(node);
-    for(auto it: adjL[node]){
+    for(int it: adjL[node]){
         if(!visited[it]){
             dfs(it,adjL,visited,ans);
         }
     }    
 }
-void makeAdjList(vector<vector<int>>&adjM,vector<int> adjL[]){
+void makeAdjList(vector<vector<int> > &adjM,vector<int> adjL[]){
 int n=adjM.size();
 int m=adjM[0].size();
 for(int i=0;i<n;i++){
     for(int j=0;j<m;j++){
         if(adjM[i][j]==1&&i!=j){
             adjL[i].push_back(j);
-            // adjL[j].push_back(i);
+            adjL[j].push_back(i);
         }
     }
 }
 }
-vector<int> dfsDriver(int Vertices,vector<vector<int>>&adjM,int u){
-    int visited[Vertices]={0};
+vector<int> dfsDriver(int Vertices,vector<vector<int> >&adjM,int u){
+    int visited[Vertices];
     vector<int> ans;
     vector<int>adjL[Vertices];
     makeAdjList(adjM,adjL);
@@ -37,8 +37,8 @@ cout<<"enter number of vertices: ";
 cin>>V;
 cout<<"enter number of edges: ";
 cin>>E;
-vector<vector<int>>adjM(V, vector<int>(V, 0));
-cout<<"enter u and v for all edges: "<<endl;
+vector<vector<int> >adjM(V, vector<int>(V, 0));
+cout<<"enter edge u to v: "<<endl;
 int u,v;
 for(int i=0;i<E;i++){
     cout<<"enter u: ";
@@ -46,12 +46,12 @@ for(int i=0;i<E;i++){
     cout<<"enter v: ";
     cin>>v;
     adjM[u][v]=1;
-    // adjM[v][u]=1;
+    adjM[v][u]=1;
 }
 int start,toWhere;
 cout<<"enter starting node: ";
 cin>>start;
-cout<<"enter node to check if path exists: ";
+cout<<"enter node end node: ";
 cin>>toWhere;
 vector<int>dfs=dfsDriver(V,adjM,start);
 int f=0;
